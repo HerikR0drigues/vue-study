@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="flex flex-col max-w-7xl container mx-auto my-auto p-6 font-poppins items-center justify-center h-full ">
+  <div class="flex flex-col text-center max-w-7xl container mx-auto my-auto p-6 font-poppins items-center justify-center h-full ">
     <h1 class="text-5xl mb-4 font-bold text-aawzMain">Home</h1>
     <h2 class="text-3xl mb-8 font-bold text-aawzMain">Bem vindo ao sistema CRUD!</h2>
     <p class="text-aawzMain mb-8">Nesse sistema você poderar gerir usuários (Criar, ler, editar, excluir)</p>

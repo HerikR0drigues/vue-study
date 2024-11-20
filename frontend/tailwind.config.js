@@ -7,12 +7,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        purpleCustom: '#6C48C5',
-        background: '#EDF1F6',
-        secondaryBackground: '#F2F4F7',
-        thirdBackground: "#FAFAFA",
-        backgroundPurple: "rgba(15, 0, 37, 1)",
-        spanHeader: "#c1095a",
         mainBackground: "",
         aawzMain: "#B7E1A7",
         aawzSecondary: "#52c227",

@@ -29,11 +29,21 @@ const handleSubmit = async () => {
 
 <template>
     <div class="flex flex-col md:flex-row h-screen font-poppins">
-        <!-- Primeira Metade -->
-        <div class="flex justify-center items-center h-full w-full md:w-1/2 bg-aawzBlack">
-            <div class="flex flex-col w-full px-6 py-4 lg:max-w-md">
-                <h1 class="text-aawzMain font-bold mb-5 text-3xl">Fazer Login</h1>
 
+        <!-- Primeira Metade -->
+        <div class="flex flex-col justify-center items-center h-full w-full md:w-1/2 bg-aawzBlack">
+
+            <div class="flex flex-col w-full px-6 py-4 lg:max-w-md space-y-6">
+
+                <!-- Logo disponível apenas no mobile -->
+                <div class="md:hidden flex justify-center mb-4">
+                    <img class="h-24 w-24 -mt-6" src="/logo-herikdev.png" alt="Herik.Dev">
+                </div>
+
+                <!-- Título -->
+                <h1 class="text-aawzMain font-bold text-3xl">Fazer Login</h1>
+
+                <!-- Formulário -->
                 <form @submit.prevent="handleSubmit" class="w-full">
                     <div class="mb-5">
                         <label for="email" class="block mb-2 text-sm font-bold text-aawzMain">Email</label>
@@ -48,7 +58,7 @@ const handleSubmit = async () => {
                             required 
                         />
                     </div>
-                    <div class="mb-2">
+                    <div class="mb-5">
                         <label for="password" class="block mb-2 text-sm font-bold text-aawzMain">Senha</label>
                         <input 
                             v-model="password"
@@ -64,10 +74,11 @@ const handleSubmit = async () => {
                     <!-- Exibir mensagens -->
                     <p v-if="errorMessage" class="text-red-500 text-sm mb-4">{{ errorMessage }}</p>
 
+                    <!-- Botão -->
                     <div class="flex justify-center">
                         <button 
                             type="submit" 
-                            class="text-black font-bold mt-4 bg-aawzMain hover:bg-aawzSecondary focus:ring-4 focus:outline-none focus:ring-aawzSecondary rounded-full text-sm w-full sm:w-auto min-w-[10rem] px-5 py-2.5 text-center">
+                            class="text-black font-bold bg-aawzMain hover:bg-aawzSecondary focus:ring-4 focus:outline-none focus:ring-aawzSecondary rounded-full text-sm w-full sm:w-auto min-w-[10rem] px-5 py-2.5 text-center">
                             Enviar
                         </button>
                     </div>
@@ -84,6 +95,7 @@ const handleSubmit = async () => {
         </div>
     </div>
 </template>
+
 
 
 <style scoped>
