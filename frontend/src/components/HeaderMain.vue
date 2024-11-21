@@ -46,7 +46,6 @@ const handleLogout = () => {
         <RouterLink to="/home" class="text-white hover:text-aawzMain transition">Home</RouterLink>
         <RouterLink to="/dashboard" class="text-white hover:text-aawzMain transition">Dashboard</RouterLink>
         <RouterLink to="/resume" class="text-white hover:text-aawzMain transition">Resumo</RouterLink>
-        <RouterLink to="/about" class="text-white hover:text-aawzMain transition">Sobre</RouterLink>
         <button
           @click="handleLogout"
           class="bg-transparent border border-aawzMain text-white px-2 py-1 rounded hover:border-red-800 hover:text-red-800 transition"

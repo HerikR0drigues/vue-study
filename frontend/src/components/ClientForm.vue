@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { ref } from 'vue';
 import { customToast } from '../utils/toastUtils';
+import { generator } from  '../utils/clientGeneratorUtils';
 
 const loading = ref(false)
 
@@ -82,6 +83,30 @@ const handleSubmit = async () => {
     formData.value.origin = 'digital';
   }
 };
+
+
+
+const handleGeneretor = async () => {
+    const clienteGerated = generator();
+    console.log(clienteGerated);
+
+    formData.value.nome = clienteGerated.nome;
+    formData.value.email = clienteGerated.email;
+    formData.value.cep = clienteGerated.cep;
+    formData.value.numero = clienteGerated.numero;
+    formData.value.complemento = clienteGerated.complemento;
+    formData.value.origin = clienteGerated.origin;
+
+    await handleCepBlur();
+    
+    setTimeout(() => {
+        loading.value = false;
+        handleSubmit();
+    }, 500);
+    loading.value = true;
+}
+
+
 </script>
 
 
@@ -91,6 +116,8 @@ const handleSubmit = async () => {
         <div v-if="loading" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-10 rounded-lg z-50">
             <div class="animate-spin font-extrabold rounded-full h-16 w-16 border-t-4 border-aawzMain"></div>
         </div>
+
+        <font-awesome-icon :icon="['fas', 'dice']" class="cursor-pointer absolute text-xl right-0 top-4 mr-4 text-gray-300 hover:text-gray-100" @click="handleGeneretor(index)"/>
 
         <form @submit.prevent="handleSubmit"
             class="space-y-6 p-6 bg-aawzBlack rounded-2xl shadow-lg border-2 border-aawzMain h-full">

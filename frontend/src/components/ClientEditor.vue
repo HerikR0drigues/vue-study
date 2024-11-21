@@ -138,7 +138,7 @@ const handleCancelEdit = () => {
             </div>  
         </div>
 
-        <font-awesome-icon :icon="['fas', 'x']" class="cursor-pointer absolute text-xl right-0 top-4 mr-4 text-red-800 hover:text-red-400" @click="handleCancelEdit(index)"/>
+        <font-awesome-icon :icon="['fas', 'x']" :class="[!props.cliente? 'text-red-800 hover:text-red-400' : 'text-gray-300 hover:text-gray-100', 'cursor-pointer absolute text-xl right-0 top-4 mr-4']" @click="handleCancelEdit(index)"/>
 
         <form @submit.prevent="handleSubmit"
             :class="[!props.cliente ? 'border-red-500' : 'border-aawzMain','space-y-6 p-6 bg-aawzBlack rounded-2xl shadow-lg border-2 border-aawzMain h-full']">
