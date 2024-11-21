@@ -1,6 +1,6 @@
 ## Vue Study
 
-Este projeto é uma aplicação web que te permite realizar as operações CRUD. Foi construído com React no frontend e Node.js no backend.
+Este projeto é uma aplicação web que te permite realizar as operações CRUD. Foi construído com Vue no frontend e Node.js no backend.
 
 ### O Aplicativo está rodando para visualização no link: [Vue Study](https://herikr0drigues.github.io/vue-study/)
 #### Para Login utilizar email: `user@user` e senha: `1234`
