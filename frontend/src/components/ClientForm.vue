@@ -50,7 +50,7 @@ const handleCepBlur = async () => {
 // Função para submeter o formulário
 const handleSubmit = async () => {
     try {
-    const response = await axios.post('http://localhost:5000/clientes', {
+    const response = await axios.post('https://vue-study-production.up.railway.app/clientes', {
       nome: formData.value.nome,
       email: formData.value.email,
       endereco: {
@@ -98,12 +98,15 @@ const handleGeneretor = async () => {
     formData.value.origin = clienteGerated.origin;
 
     await handleCepBlur();
-    
-    setTimeout(() => {
+
+    try {
+        loading.value = true;
+        await handleSubmit();
         loading.value = false;
-        handleSubmit();
-    }, 500);
-    loading.value = true;
+    } catch (error) {
+        console.log(error)
+    }
+
 }
 
 

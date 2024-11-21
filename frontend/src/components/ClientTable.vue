@@ -32,7 +32,7 @@ const handleDelete = async (cliente) => {
         loading.value = true;
 
         // Enviar apenas o ID do cliente para a exclusão
-        const response = await axios.post('http://localhost:5000/clientes/delete', {
+        const response = await axios.post('https://vue-study-production.up.railway.app/clientes/delete', {
           id: cliente._id // Certifique-se de que o cliente tem o ID correto
         });
 

@@ -11,7 +11,7 @@ const clienteParaEditar = ref(null);  // Variável para armazenar o cliente a se
 // Função para buscar os clientes
 const fetchClientes = async () => {
   try {
-    const response = await axios.get('http://localhost:5000/clientes');
+    const response = await axios.get('https://vue-study-production.up.railway.app/clientes');
     clientes.value = response.data;
   } catch (error) {
     console.error('Erro ao buscar clientes:', error);

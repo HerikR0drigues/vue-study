@@ -11,7 +11,7 @@ const errorMessage = ref('');
 
 const handleSubmit = async () => {
   try {
-    const response = await axios.post('http://localhost:5000/auth/login', {
+    const response = await axios.post('https://vue-study-production.up.railway.app/auth/login', {
       email: email.value,
       password: password.value,
     });

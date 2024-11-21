@@ -73,7 +73,7 @@ const handleCepBlur = async () => {
 // Função para submeter o formulário
 const handleSubmit = async () => {
     try {
-    const response = await axios.post('http://localhost:5000/clientes/edit', {
+    const response = await axios.post('https://vue-study-production.up.railway.app/clientes/edit', {
       nome: clienteParaEditar.nome,
       email: clienteParaEditar.email,
       endereco: {
