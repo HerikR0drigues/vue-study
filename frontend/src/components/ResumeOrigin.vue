@@ -1,0 +1,72 @@
+<script setup>
+import { BarChart, PieChart } from 'vue-chart-3';
+import { Chart, registerables } from 'chart.js';
+import { ref, computed, watch } from 'vue';
+
+// Registra os módulos necessários do Chart.js
+Chart.register(...registerables);
+Chart.defaults.color = '#ffffff';
+
+// Props para receber os clientes
+const props = defineProps({
+  clientes: {
+    type: Array,
+    required: true,
+  },
+});
+
+// Contagem por estado
+const estadoContagem = ref({});
+const origemContagem = ref({});
+
+// Observa mudanças em `clientes` e atualiza `estadoContagem`
+watch(
+  () => props.clientes,
+  (newClientes) => {
+    const contagem = newClientes.reduce((acc, usuario) => {
+      const origem = usuario.origem || 'Desconhecido';
+      acc[origem] = (acc[origem] || 0) + 1;
+      return acc;
+    }, {});
+    origemContagem.value = contagem;
+  },
+  { immediate: true }
+);
+
+// Dados formatados para o gráfico
+const PieChartData = computed(() => ({
+  labels: Object.keys(origemContagem.value),
+  datasets: [
+    {
+      label: 'Quantidade de Clientes por Estado',
+      data: Object.values(origemContagem.value),
+      backgroundColor: ['#52c227', '#607367'],
+    },
+  ],
+}));
+
+</script>
+
+<template>
+  <div class="w-full">
+    <div class="flex flex-col justify-center items-center space-y-2 p-6 bg-aawzBlack rounded-2xl shadow-lg border-2 border-aawzMain">
+      <h2 class="text-2xl font-bold text-aawzMain mb-6 text-center">Clientes por Origem</h2>
+      <div class="w-full justify-center flex">
+        <div>
+          <!-- Verifica se há clientes -->
+          <p v-if="!clientes || clientes.length === 0" class="text-gray-300 text-xl text-center">
+            Nenhum cliente cadastrado.
+          </p>
+          <div v-else class="text-gray-300 text-xl text-center">
+            <!-- Renderiza o gráfico -->
+            <PieChart
+              class="max-h-80"
+              :chart-data="PieChartData"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+

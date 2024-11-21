@@ -2,7 +2,6 @@
 import axios from 'axios';
 import { reactive, ref, watch  } from 'vue';
 import { customToast } from '../utils/toastUtils';
-import { defineProps } from 'vue';
 
 
 const props = defineProps({
@@ -129,7 +128,7 @@ const handleCancelEdit = () => {
     <div class="w-full h-full relative font-sofia">
         <!-- Overlay escurecido e spinner centralizado -->
         <div v-if="loading" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-10 rounded-lg z-50">
-            <div class="animate-spin font-extrabold rounded-full h-16 w-16 border-t-4 border-blue-900"></div>
+            <div class="animate-spin font-extrabold rounded-full h-16 w-16 border-t-4 border-aawzMain"></div>
         </div>
 
         <div v-if="!props.cliente" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 rounded-xl z-50">
@@ -139,7 +138,7 @@ const handleCancelEdit = () => {
             </div>  
         </div>
 
-        <font-awesome-icon :icon="['fas', 'x']" class="cursor-pointer absolute text-xl right-0 top-4 mr-4 text-red-600 hover:opacity-60" @click="handleCancelEdit(index)"/>
+        <font-awesome-icon :icon="['fas', 'x']" class="cursor-pointer absolute text-xl right-0 top-4 mr-4 text-red-800 hover:text-red-400" @click="handleCancelEdit(index)"/>
 
         <form @submit.prevent="handleSubmit"
             :class="[!props.cliente ? 'border-red-500' : 'border-aawzMain','space-y-6 p-6 bg-aawzBlack rounded-2xl shadow-lg border-2 border-aawzMain h-full']">

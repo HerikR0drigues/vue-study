@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue';
-import { defineProps } from 'vue';
 import { defineEmits } from 'vue';
 import axios from 'axios';
 import { customToast, customConfirmToast } from '../utils/toastUtils';

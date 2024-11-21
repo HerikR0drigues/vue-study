@@ -3,6 +3,7 @@ import LoginView from '../views/LoginView.vue';
 import DashboardView from '../views/DashboardView.vue';
 import AboutView from '../views/AboutView.vue';
 import HomeView from '../views/HomeView.vue';
+import ResumeView from '@/views/ResumeView.vue';
 
 // Função que verifica autenticação
 const isAuthenticated = () => {
@@ -27,6 +28,12 @@ const router = createRouter({
       path: '/dashboard',
       name: 'dashboard',
       component: DashboardView,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/resume',
+      name: 'resume',
+      component: ResumeView,
       meta: { requiresAuth: true },
     },
     {

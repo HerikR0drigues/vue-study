@@ -89,7 +89,7 @@ const handleSubmit = async () => {
     <div class="w-full h-full relative font-sofia">
         <!-- Overlay escurecido e spinner centralizado -->
         <div v-if="loading" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-10 rounded-lg z-50">
-            <div class="animate-spin font-extrabold rounded-full h-16 w-16 border-t-4 border-blue-900"></div>
+            <div class="animate-spin font-extrabold rounded-full h-16 w-16 border-t-4 border-aawzMain"></div>
         </div>
 
         <form @submit.prevent="handleSubmit"
