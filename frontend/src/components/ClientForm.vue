@@ -88,7 +88,6 @@ const handleSubmit = async () => {
 
 const handleGeneretor = async () => {
     const clienteGerated = generator();
-    console.log(clienteGerated);
 
     formData.value.nome = clienteGerated.nome;
     formData.value.email = clienteGerated.email;
