@@ -1,9 +1,9 @@
 ## Vue Study
 
-Este projeto é uma aplicação web que te permite realizar as operações CRUD. recupera estatísticas em tempo real de partidas do Avaí Futebol Clube utilizando a API do `Sofascore`. Ele foi construído com React no frontend e Node.js no backend.
+Este projeto é uma aplicação web que te permite realizar as operações CRUD. Foi construído com React no frontend e Node.js no backend.
 
 ### O Aplicativo está rodando para visualização no link: [Vue Study](https://herikr0drigues.github.io/vue-study/)
-#### Para Login utilizar email:`user@user` e senha:`1234`
+#### Para Login utilizar email: `user@user` e senha: `1234`
 
 
 ## 🚀 Funcionalidades
