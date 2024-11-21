@@ -6,14 +6,18 @@ import ClientEditor from '../components/ClientEditor.vue';
 import axios from 'axios';
 
 const clientes = ref([]);
-const clienteParaEditar = ref(null);  // Variável para armazenar o cliente a ser editado
+const clienteParaEditar = ref(null);
+const loadingTwo = ref(false);
 
 // Função para buscar os clientes
 const fetchClientes = async () => {
   try {
+    loadingTwo.value = true;
     const response = await axios.get('https://vue-study-production.up.railway.app/clientes');
     clientes.value = response.data;
+    loadingTwo.value = false;
   } catch (error) {
+    loadingTwo.value = false;
     console.error('Erro ao buscar clientes:', error);
     alert('Ocorreu um erro ao buscar os clientes.');
   }
@@ -48,6 +52,7 @@ const handleClienteEditClear = () => {
       <div class="flex lg:w-1/3 w-full">
         <ClientTable 
           :clientes="clientes" 
+          :loadingTwo="loadingTwo"
           @editarCliente="handleClienteEdit" 
           @clienteDeletado="fetchClientes"
         />

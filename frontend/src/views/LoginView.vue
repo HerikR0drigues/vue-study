@@ -8,9 +8,11 @@ const email = ref('');
 const password = ref('');
 const router = useRouter();
 const errorMessage = ref('');
+const loading = ref(false);
 
 const handleSubmit = async () => {
   try {
+    loading.value = true;
     const response = await axios.post('https://vue-study-production.up.railway.app/auth/login', {
       email: email.value,
       password: password.value,
@@ -18,9 +20,12 @@ const handleSubmit = async () => {
 
     if (response.data.token) {
     login(response.data.token);
-      router.push('/home');
+        loading.value = false;
+        router.push('/home');
     }
+
   } catch (error) {
+    loading.value = false;
     console.error('Erro ao fazer login:', error);
     errorMessage.value = error.response?.data?.message || 'Erro ao fazer login';
   }
@@ -78,8 +83,14 @@ const handleSubmit = async () => {
                     <div class="flex justify-center">
                         <button 
                             type="submit" 
-                            class="text-black font-bold bg-aawzMain hover:bg-aawzSecondary focus:ring-4 focus:outline-none focus:ring-aawzSecondary rounded-full text-sm w-full sm:w-auto min-w-[10rem] px-5 py-2.5 text-center">
-                            Enviar
+                            class="text-black flex justify-center font-bold bg-aawzMain hover:bg-aawzSecondary focus:ring-4 focus:outline-none focus:ring-aawzSecondary rounded-full text-sm w-full sm:w-auto min-w-[10rem] px-5 py-2.5 text-center">
+                            <template v-if="loading">
+                                <div class="animate-spin font-extrabold rounded-full h-6 w-6 border-t-4 border-black"></div>
+                            </template>
+                            <template v-else>
+                                Enviar
+                            </template>
+
                         </button>
                     </div>
                 </form>
